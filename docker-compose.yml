@@ -1,0 +1,23 @@
+
+version: '3.1'
+services:
+  app:
+    container_name: stc-fileManagement
+    image: springboot-postgresql
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgresqldb
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresqldb:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgre
+      - SPRING_DATASOURCE_PASSWORD=postgre
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+  postgresqldb:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgre
+      - POSTGRES_USER=postgre

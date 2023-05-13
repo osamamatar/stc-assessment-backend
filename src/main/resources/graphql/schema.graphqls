@@ -1,0 +1,23 @@
+type file {
+    id: ID!
+    name: String!
+}
+type folder {
+    id: ID!
+    name: String!
+    files : [file]
+}
+
+type space {
+    id: ID!
+    name: String!
+    folders : [folder]
+    files : [file]
+}
+
+
+
+type Query {
+    getItems: [space]
+
+}
